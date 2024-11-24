@@ -22,4 +22,4 @@ This project is will show you basic working of a Fiori Element List Report App
 6. user can move to object detail page by clicking on row of the table
 7. user can perform create and edit operation on main and detail page
 
-![image](https://github.com/user-attachments/assets/49a0ba82-5426-46aa-a9e5-960b750d3fb8)
+![image](https://github.com/user-attachments/assets/91a3a750-ade0-4a59-9872-9eee7cc24b56)
