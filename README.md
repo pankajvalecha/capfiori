@@ -6,7 +6,7 @@ Hello Reader,
 Welcome to the CAP Fiori Elements project for Material list and supplier.
 This project is will show you basic working of a Fiori Element List Report App
 
-# Main aim of this project show funstionalities :
+# Main aim of this project show functionalities :
 1. Adding custom buttons/actions using CAP Annotations
 2. Adding custom button/controls using controller extension API [Flexible Programming Model for SAP Fiori]
 3. Basic Binding of backend data using annotations using CAP framework
