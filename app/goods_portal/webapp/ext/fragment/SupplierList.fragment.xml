@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+    <VBox>
+        <Text text="SupplierList"/>
+    </VBox>
+    <macros:Table id="Table" metaPath="/Suppliers/@com.sap.vocabularies.UI.v1.LineItem#tableMacro" header="{i18n&gt;suppliers}"/>
+</core:FragmentDefinition>

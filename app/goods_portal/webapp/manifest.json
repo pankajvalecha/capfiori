@@ -49,7 +49,9 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.f": {},
+        "sap.fe.macros": {}
       }
     },
     "contentDensities": {
@@ -81,17 +83,28 @@
       "css": []
     },
     "routing": {
-      "config": {},
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
       "routes": [
         {
           "pattern": ":?query:",
           "name": "MaterialsList",
-          "target": "MaterialsList"
+          "target": [
+            "MaterialsList"
+          ]
         },
         {
           "pattern": "Materials({key}):?query:",
           "name": "MaterialsObjectPage",
-          "target": "MaterialsObjectPage"
+          "target": [
+            "MaterialsList",
+            "MaterialsObjectPage"
+          ]
         }
       ],
       "targets": {
@@ -102,7 +115,7 @@
           "options": {
             "settings": {
               "contextPath": "/Materials",
-              "variantManagement": "Page",
+              "variantManagement": "None",
               "navigation": {
                 "Materials": {
                   "detail": {
@@ -116,9 +129,12 @@
                     "type": "ResponsiveTable"
                   }
                 }
-              }
+              },
+              "hideFilterBar": false
             }
-          }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
         },
         "MaterialsObjectPage": {
           "type": "Component",
@@ -127,11 +143,47 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Materials"
+              "contextPath": "/Materials",
+              "content": {
+                "body": {
+                  "sections": {
+                    "SupplierList": {
+                      "template": "sap.poc.fe.goodsportal.ext.fragment.SupplierList",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "GeneratedFacet1"
+                      },
+                      "title": "SupplierList"
+                    }
+                  }
+                },
+                "header": {
+                  "facets": {
+                    "Test": {
+                      "template": "sap.poc.fe.goodsportal.ext.fragment.Test",
+                      "title": "{i18n>customsection}",
+                      "subTitle": "Custom Action using extension API",
+                      "stashed": false,
+                      "requestGroupId": "Heroes",
+                      "flexSettings": {
+                        "designtime": "Default"
+                      }
+                    }
+                  }
+                }
+              }
             }
-          }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Materials({key})"
         }
       }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
     }
   },
   "sap.fiori": {
